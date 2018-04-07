@@ -2,11 +2,7 @@
 //Graph Theory Project
 //Code adapted from video lectures : https://web.microsoftstream.com/video/9d83a3f3-bc4f-4bda-95cc-b21c8e67675e
 
-package main
-
-import (
-	"fmt"
-)
+package methods
 
 func intopost(infix string) string {
 	specials := map[rune]int{'*': 10, '.': 9, '|': 8} //Map to keep track of special chars, and order of precedence
@@ -42,8 +38,9 @@ func intopost(infix string) string {
 	}
 
 	return string(pofix)
-}
+} //end intopost
 
+/*
 func main() {
 
 	//Answer ab.c*.
@@ -61,4 +58,6 @@ func main() {
 	//Answer abb.+.c.
 	fmt.Println("Infix: ", "a.(b.b)+.c")
 	fmt.Println("Postfix: ", intopost("a.(b.b)+.c"))
+
 }
+*/

@@ -3,7 +3,7 @@
 //Graph Theory Project
 //Code adapted from video lectures : https://web.microsoftstream.com/video/bad665ee-3417-4350-9d31-6db35cf5f80d
 
-package main
+package methods
 
 import (
 	"fmt"
@@ -66,7 +66,7 @@ func Poregtonfa(pofix string) *nfa {
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: &accept})
 		}
 	}
-	if len(nfastack) != 1 {
+	if len(nfastack) != 1 { //if there is an error catch it and alert the user
 		fmt.Println("uh oh: ", len(nfastack), nfastack)
 	}
 
@@ -114,6 +114,8 @@ func pomatch(po string, s string) bool { //does po match s
 	return ismatch
 } //end pomatch
 
+/*
 func main() {
 	fmt.Println(pomatch("ab.c*|", "cccc"))
 } //end main
+*/
