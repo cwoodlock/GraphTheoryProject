@@ -13,6 +13,9 @@ func main() {
 	exit := true
 	option := 0
 
+	fmt.Println("Please enter 1 to parse the regular expression from infix to postfix notation \n Please enter 2 to parse regular expression to nfa \n Please enter 3 to exit")
+	fmt.Scanln(&option)
+
 	for exit {
 		if option == 1 {
 
