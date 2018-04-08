@@ -3,7 +3,7 @@
 //Graph Theory Project
 //Code adapted from video lectures : https://web.microsoftstream.com/video/bad665ee-3417-4350-9d31-6db35cf5f80d
 
-package methods
+package main
 
 import (
 	"fmt"
