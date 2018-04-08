@@ -40,6 +40,9 @@ func main() {
 			fmt.Println("Infix:  ", regex)            //display the infix regular expression
 			fmt.Println("Postfix: ", Intopost(regex)) //display the postfix regular expression
 
+			fmt.Println(" Please enter 1 to parse the regular expression from infix to postfix notation \n Please enter 2 to parse regular expression to nfa \n Please enter 3 to exit")
+			fmt.Scanln(&option) //read in the users selection
+
 		} else if option == 2 {
 			fmt.Println("Please enter the regular expression you want to convert to nfa: ")
 			reader := bufio.NewReader(os.Stdin) //read in user regular expression
@@ -63,6 +66,9 @@ func main() {
 			} else {
 				fmt.Println("Error..")
 			}
+
+			fmt.Println(" Please enter 1 to parse the regular expression from infix to postfix notation \n Please enter 2 to parse regular expression to nfa \n Please enter 3 to exit")
+			fmt.Scanln(&option) //read in the users selection
 
 		} else if option == 3 {
 			fmt.Println("Exiting...") //option 3 exits the program
