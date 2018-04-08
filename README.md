@@ -46,9 +46,9 @@ completed.
 From my reading of the problem there were a few main things that had to be done. One was the ability to change infix regular expressions into postfix regular expressions. Secondly was to be able to build an NFA(non-deterministic finite automaton) from a regular expression. Finally was the ability to check if the regular expression matches any given string of test by using the NFA. Using this as a guide I was able to break the project up into steps.
 
 1. First did the video lectures online which gave a good baseline of code and understanding to work from
-2.From there established a simple command line menu that let you select an option to change infix to postfix
-3.After this it was working on an option to build NFA's from regular expression
-4.Next was building an additional option to compare a user entered string to compare to the regukar expression.
+2. From there established a simple command line menu that let you select an option to change infix to postfix
+3. After this it was working on an option to build NFA's from regular expression
+4. Next was building an additional option to compare a user entered string to compare to the regukar expression.
 5. Finally was extending the functionality of some of the methods to include other "wildcard" characters like + or ?
 
 ## Conclusion
