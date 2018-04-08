@@ -112,7 +112,7 @@ func Poregtonfa(pofix string) *nfa {
 
 	for _, r := range pofix {
 		switch r {
-		case '.':
+		case '.': //concatonate
 			frag2 := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
 			frag1 := nfastack[len(nfastack)-1]
@@ -122,7 +122,7 @@ func Poregtonfa(pofix string) *nfa {
 
 			nfastack = append(nfastack, &nfa{initial: frag1.initial, accept: frag2.accept})
 
-		case '|':
+		case '|': //or
 			frag2 := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
 			frag1 := nfastack[len(nfastack)-1]
@@ -135,7 +135,7 @@ func Poregtonfa(pofix string) *nfa {
 
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: &accept})
 
-		case '*':
+		case '*': //Kleene star (any number of)
 			frag := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
 
@@ -145,6 +145,23 @@ func Poregtonfa(pofix string) *nfa {
 			frag.accept.edge2 = &accept
 
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: &accept})
+
+		case '+': //at least one of
+			frag := nfastack[len(nfastack)-1] //pop one frag off the nfa nfastack
+			nfastack = nfastack[:len(nfastack)-1]
+
+			accept := state{}                                     //create a new accept states
+			initial := state{edge1: frag.initial, edge2: &accept} //create new state initial where edge1 pounts to frag.initial and edge2 points at the new accept state
+
+			frag.accept.edge1 = &initial                                              //frag edge1 points to the initial states
+			nfastack = append(nfastack, &nfa{initial: frag.initial, accept: &accept}) //push the new frag onto the stack
+
+		case '?': //zero or one of
+			frag := nfastack[len(nfastack)-1] //pop one frag off the nfa nfastack
+
+			initial := state{edge1: frag.initial, edge2: frag.accept} //create new state initial
+
+			nfastack = append(nfastack, &nfa{initial: &initial, accept: frag.accept}) //push new frag onto the stack
 
 		default:
 			accept := state{}
