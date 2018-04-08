@@ -54,4 +54,11 @@ From my reading of the problem there were a few main things that had to be done.
 ## Conclusion
 Overall I found this project pretty challenging, but feel like I learned something from the project. The videos I found super useful , both this project and the last module with did with lecturer Ian McLoughlin. I found them easy to follow along, things were explained well and the abilty to go back and few things multiple times was a massive help. An issue I had at the start was I coulldnt get the packages in seperate files to link to the main, I fixed this by just including everything in main.go. Other than that I didn't have many issues that weren't solved by sitting down and thinking about the logic. Overall I felt like this was a good learning experience.
 
+
+## Working images
+![1](https://github.com/cwoodlock/GraphTheoryProject/blob/master/Images/1.png)
+![2](https://github.com/cwoodlock/GraphTheoryProject/blob/master/Images/2.png)
+![3](https://github.com/cwoodlock/GraphTheoryProject/blob/master/Images/3.png)
+![4](https://github.com/cwoodlock/GraphTheoryProject/blob/master/Images/4.png)
+
 ## References
