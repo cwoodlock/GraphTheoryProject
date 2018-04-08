@@ -40,6 +40,27 @@ func main() {
 
 		} else if option == 2 {
 			fmt.Println("Please enter the regular expression you want to convert to nfa: ")
+			reader := bufio.NewReader(os.Stdin)
+			regex, _ := reader.ReadString('\n')
+
+			fmt.Println("Postfix:  ", regex)
+			fmt.Println("NFA: ", Poregtonfa(regex))
+
+			fmt.Println("Please enter the string to see if it matches the nfa: ")
+			userString, _ := reader.ReadString('\n')
+			userString = Intopost(userString)
+
+			if pomatch(regex, userString) == false {
+
+				fmt.Println("The string does not match")
+
+			} else if pomatch(regex, userString) == true {
+
+				fmt.Println("String: ", userString, " matches the regulare expression: ", regex)
+
+			} else {
+				fmt.Println("Error..")
+			}
 
 		} else if option == 3 {
 			fmt.Println("Exiting...")
