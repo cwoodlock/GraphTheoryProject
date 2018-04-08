@@ -62,3 +62,16 @@ Overall I found this project pretty challenging, but feel like I learned somethi
 ![4](https://github.com/cwoodlock/GraphTheoryProject/blob/master/Images/4.png)
 
 ## References
+[Online Lecture](https://web.microsoftstream.com/video/d08f6a02-23ec-4fa1-a781-585f1fd8c69e )
+[Online Lecture](https://web.microsoftstream.com/video/9d83a3f3-bc4f-4bda-95cc-b21c8e67675e )
+[Online Lecture](https://web.microsoftstream.com/video/946a7826-e536-4295-b050-857975162e6c)
+[Online Lecture](https://web.microsoftstream.com/video/68a288f5-4688-4b3a-980e-1fcd5dd2a53b)
+[Online Lecture](https://web.microsoftstream.com/video/bad665ee-3417-4350-9d31-6db35cf5f80d)
+[Youtube video](https://www.youtube.com/watch?v=RYNN-tb9WxI)
+[Golang packages](https://golang.org/pkg/)
+[Russ Cox Paper](https://swtch.com/~rsc/regexp/regexp1.html)
+[Stack overflow question](https://stackoverflow.com/questions/20061252/convert-a-nfa-to-regular-expression?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+
+
+ 
+ 
