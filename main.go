@@ -1,13 +1,14 @@
 //Colm Woodlock
 //G00341460
 //Graph Theory Project
+//This code is adapted from the video lectures given to us
 
 package main
 
 import (
-	"bufio"
-	"fmt" //https://golang.org/pkg/bufio/
-	"os"
+	"bufio" //https://golang.org/pkg/bufio/
+	"fmt"   //https://golang.org/pkg/bufio/
+	"os"    //https://golang.org/pkg/os/
 )
 
 type state struct {
@@ -26,31 +27,32 @@ func main() {
 	exit := true
 	option := 0
 
+	//prompt user to enter a number which corresponds to a function of the program
 	fmt.Println(" Please enter 1 to parse the regular expression from infix to postfix notation \n Please enter 2 to parse regular expression to nfa \n Please enter 3 to exit")
-	fmt.Scanln(&option)
+	fmt.Scanln(&option) //read in the users selection
 
 	for exit {
 		if option == 1 {
 			fmt.Println("Please enter the regular expression you want to convert into postfix notation: ")
-			reader := bufio.NewReader(os.Stdin)
+			reader := bufio.NewReader(os.Stdin) //read in the regular expression the user entered
 			regex, _ := reader.ReadString('\n')
 
-			fmt.Println("Infix:  ", regex)
-			fmt.Println("Postfix: ", Intopost(regex))
+			fmt.Println("Infix:  ", regex)            //display the infix regular expression
+			fmt.Println("Postfix: ", Intopost(regex)) //display the postfix regular expression
 
 		} else if option == 2 {
 			fmt.Println("Please enter the regular expression you want to convert to nfa: ")
-			reader := bufio.NewReader(os.Stdin)
+			reader := bufio.NewReader(os.Stdin) //read in user regular expression
 			regex, _ := reader.ReadString('\n')
 
-			fmt.Println("Postfix:  ", regex)
-			fmt.Println("NFA: ", Poregtonfa(regex))
+			fmt.Println("Postfix:  ", regex)        //display the postfix regular expression
+			fmt.Println("NFA: ", Poregtonfa(regex)) //display tthe converted regular expression as an nfa
 
 			fmt.Println("Please enter the string to see if it matches the nfa: ")
-			userString, _ := reader.ReadString('\n')
+			userString, _ := reader.ReadString('\n') //read in string to compare to the regular expression
 			userString = Intopost(userString)
 
-			if pomatch(regex, userString) == false {
+			if pomatch(regex, userString) == false { //pomatch compares the regular expression and the user entered string
 
 				fmt.Println("The string does not match")
 
@@ -63,10 +65,10 @@ func main() {
 			}
 
 		} else if option == 3 {
-			fmt.Println("Exiting...")
+			fmt.Println("Exiting...") //option 3 exits the program
 			exit = false
 		} else {
-			fmt.Println("Please enter a valid option (e.g 3 to exit)")
+			fmt.Println("Please enter a valid option (e.g 3 to exit)") //catch invalid inputs
 		}
 	}
 } // end main
@@ -91,7 +93,7 @@ func Intopost(infix string) string {
 
 		case specials[r] > 0:
 			for len(s) > 0 && specials[r] <= specials[s[len(s)-1]] {
-				pofix, s = append(pofix, s[len(s)-1]), s[:len(s)-1] //Condensed version of lines 20 + 21
+				pofix, s = append(pofix, s[len(s)-1]), s[:len(s)-1]
 			}
 			s = append(s, r)
 
@@ -113,7 +115,7 @@ func Poregtonfa(pofix string) *nfa {
 	for _, r := range pofix {
 		switch r {
 		case '.': //concatonate
-			frag2 := nfastack[len(nfastack)-1]
+			frag2 := nfastack[len(nfastack)-1] //create two fragments
 			nfastack = nfastack[:len(nfastack)-1]
 			frag1 := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
@@ -123,7 +125,7 @@ func Poregtonfa(pofix string) *nfa {
 			nfastack = append(nfastack, &nfa{initial: frag1.initial, accept: frag2.accept})
 
 		case '|': //or
-			frag2 := nfastack[len(nfastack)-1]
+			frag2 := nfastack[len(nfastack)-1] //create two fragments
 			nfastack = nfastack[:len(nfastack)-1]
 			frag1 := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
@@ -136,7 +138,7 @@ func Poregtonfa(pofix string) *nfa {
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: &accept})
 
 		case '*': //Kleene star (any number of)
-			frag := nfastack[len(nfastack)-1]
+			frag := nfastack[len(nfastack)-1] //create one fragment
 			nfastack = nfastack[:len(nfastack)-1]
 
 			accept := state{}
